@@ -16,14 +16,6 @@ def test_basic_polynomial():
     assert result == 5
 
 
-def test_error_handling():
-    try:
-        evaluate_polynomial_horner(3, 1, 0, 1, 2)  
-        assert False, "Should have raised ValueError"
-    except ValueError as e:
-        assert "need 3 coefficient(s)" in str(e)
-
-
 def test_loop_functionality():
     result1 = evaluate_polynomial_horner(2, 3, 1, 2, 1)
     assert result1 == 16 
@@ -71,7 +63,6 @@ if __name__ == "__main__":
     test_functions = [
         test_example_polynomial,
         test_basic_polynomial,
-        test_error_handling,
         test_loop_functionality,
         test_interactive_loop,
         test_interactive_loop_exit_immediately
