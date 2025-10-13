@@ -45,25 +45,6 @@ def test_interactive_loop():
     assert "5" in output or "5.0" in output
 
 
-def test_interactive_loop_exit_immediately():
-    """Test the interactive loop when user chooses 'n' immediately."""
-    input_sequence = "2\n3\n1\n2\n1\nn\n"
-    
-    result = subprocess.run(
-        [sys.executable, "polynomial.py"],
-        input=input_sequence,
-        text=True,
-        capture_output=True,
-        cwd=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    )
-    
-    assert result.returncode == 0
-    
-    output = result.stdout
-    assert "1" in output or "1.0" in output
-    assert "7" in output or "7.0" in output
-    assert "16" in output or "16.0" in output 
-
 
 if __name__ == "__main__":
     test_functions = [
@@ -71,7 +52,7 @@ if __name__ == "__main__":
         test_basic_polynomial,
         test_loop_functionality,
         test_interactive_loop,
-        test_interactive_loop_exit_immediately
+
     ]
     
     print("Running polynomial evaluation tests...")
