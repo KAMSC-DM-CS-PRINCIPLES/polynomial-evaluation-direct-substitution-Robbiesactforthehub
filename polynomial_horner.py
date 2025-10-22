@@ -1,5 +1,4 @@
-
-def evaluate_polynomial(degree, x, constant_term, *coefficients):
+def evaluate_polynomial_horner(degree, x, constant_term, *coefficients):
     s=constant_term
     k=1
     pwr=x
