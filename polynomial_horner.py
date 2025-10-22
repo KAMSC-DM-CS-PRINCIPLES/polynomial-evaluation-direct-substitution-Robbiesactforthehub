@@ -1,5 +1,5 @@
 def evaluate_polynomial_horner(degree, x, constant_term, *coefficients):
-        s=constant_term
+    s=constant_term
     k=1
     pwr=x
     if (degree!=len(coefficients)):
