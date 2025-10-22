@@ -22,9 +22,19 @@ jobs:
         command: python -m pytest tests/test_polynomial.py -v
         timeout: 10
         max-score: 10
+    - name: Horner Evaluation Test
+      id: horner-evaluation-test
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Horner Evaluation Test
+        setup-command: pip install -r requirements.txt
+        command: pytest tests/test_polynomial_horner.py -v
+        timeout: 10
+        max-score: 10
     - name: Autograding Reporter
       uses: classroom-resources/autograding-grading-reporter@v1
       env:
         POLYNOMIAL-EVALUATION-TEST_RESULTS: "${{steps.polynomial-evaluation-test.outputs.result}}"
+        HORNER-EVALUATION-TEST_RESULTS: "${{steps.horner-evaluation-test.outputs.result}}"
       with:
-        runners: polynomial-evaluation-test
+        runners: polynomial-evaluation-test,horner-evaluation-test
